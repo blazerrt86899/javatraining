@@ -1,28 +1,25 @@
-/* Author: Romu Tiwari
- * Employee id: 844549
- * Created on: 08/01/2020
- * Time: 11:00pm
- * Description: Test Inheritance and Overriding
- * */
-package com.cts.day2;
+package com.cts.practise;
 
 public class TestInheritance {
 
 	public static void main(String[] args) {
 		
-		TV tv = new TV();
-		DVDPlayer dvd = new DVDPlayer();
+		InheritanceExample superClass = new InheritanceExample(5,6,7);
+		InheritanceSub subClass = new InheritanceSub(3, 4, 5, 78, "Blue");
 		
-		tv.switchOn();
-		tv.display();
-		tv.idle();
-		tv.switchOff();
-		
-		
-		dvd.switchOn();
-		dvd.play();
-		dvd.idle();
-		dvd.switchOff();
+		System.out.println("/**********************/");
+		//From BaseClass
+		superClass.baseInfo();
+
+		System.out.println("/**********************/");
+		//From DerivedClass
+		subClass.baseInfo();
+
+		System.out.println("/**********************/");
+		subClass.derivedInfo();
+
+		System.out.println("/**********************/");
+
 	}
 
 }
