@@ -1,0 +1,109 @@
+BuyerController
+
+
+CartController
+#1. addCartItem
+Http Request:
+{
+"itemId":26,
+"buyerId":45
+}
+
+HttpResponse:
+{
+"cartId":354,
+"itemId":26,
+"buyerId":45
+}
+
+
+#2. deleteCartItem
+Http Request:
+{
+"cartId": 321,
+"buyerId": 31
+}
+
+Http Response:
+{
+"cartId": 321,
+"buyerId": 31,
+"status": "deleted"
+}
+
+
+#3. updateCartItem
+Http Request:
+{
+"cartId":245,
+"buyerId":21,
+"numberOfItems":1
+}
+
+Http Response:
+{
+"cartId":245,
+"buyerId":21,
+"numberOfItems":1,
+"status":"done"
+}
+
+#4. emptyCart
+Http Request:
+{
+"buyerId":213
+}
+
+Http Response:
+{
+"buyerId":213,
+"cartstatus":"deleted"
+}
+
+#5. getCartItems
+Http Request:
+{
+"buyerId":213
+}
+
+Http Response:
+[
+{
+"cartItemId":12,
+"itemId":25,
+"itemName":"Xyz Monitor",
+"quantity": 4
+},
+{
+"cartItemId":15,
+"itemId":28,
+"itemName":"Abc Monitor",
+"quantity": 2
+},
+{
+"cartItemId":22,
+"itemId":1251,
+"itemName":"Mno Keyboard",
+"quantity": 1
+}
+]
+
+#6. checkOut
+Http Request:
+{
+"buyerId":213
+}
+
+Http Response:
+{
+"buyerId":213,
+"cartstatus":"checkout_done"
+}
+
+algorithm:
+a)deduct item inventory
+b)add record to Txn Repository
+c)add record to Purchase History(add one record for each item)
+d)empty the cart
+
+
