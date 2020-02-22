@@ -107,3 +107,174 @@ c)add record to Purchase History(add one record for each item)
 d)empty the cart
 
 
+Seller Microservice
+
+#1. createSeller
+Http Request:
+{
+username :
+password :
+companyName :
+GSTIN :
+companyDescription :
+PostalAddress :
+website :
+emailID :
+contactNo :
+}
+Http Response :
+{
+sellerId: 45,
+--other Seller details--
+}
+
+#2. addProduct
+Http Request:
+{
+productName: "CPUMonitor"
+Manufacturer: "Xyz"
+Model: "abc"
+sellerId: 23
+Price: 245.50
+Quantity: 50
+CategoryId: 3
+SubCategoryId: 9
+decription: ""
+picture: ""
+}
+
+Http Response:
+{
+productId: 
+--other product details here--
+}
+
+#3. deleteItem
+Http Request:
+{
+productId: 34
+sellerId: 5
+}
+
+Http Response:
+{
+productId: 34,
+sellerId: 5
+status: "deleted"
+}
+
+
+#4. updateProduct
+Http Request:
+{
+productId: 34,
+sellerId:8,
+Quantity: 50
+--any other details of existing Product can be updated--
+}
+
+Http Response:
+{
+productId: 34,
+sellerId: 8,
+--other details of product--(optional)
+status: "updated"
+}
+
+#5. viewProducts
+Http Request:
+{
+sellerId: 23 
+}
+
+HttpResponse:
+[
+{
+productName: "CPUMonitor"
+Manufacturer: "Xyz"
+Model: "abc"
+sellerId: 23
+Price: 245.50
+Quantity: 50
+CategoryId: 3
+SubCategoryId: 10
+decription: ""
+picture: ""
+},
+{
+productName: "MnoLaptop"
+Manufacturer: "Hp"
+Model: "Hp 123"
+sellerId: 23
+Price: 64500.50
+Quantity: 50
+CategoryId: 3
+SubCategoryId: 9
+decription: ""
+picture: ""
+},
+{
+productName: "Mobile"
+Manufacturer: "Oppp"
+Model: "S123"
+sellerId: 23
+Price: 11245.50
+Quantity: 50
+CategoryId: 3
+SubCategoryId: 9
+decription: ""
+picture: ""
+}
+]
+
+viewBalanceandTax End point-- optional
+INternal REST End points:
+#6. updateProductStock -- Invoked during Buyer Checkout Use Case
+Http Request:
+{
+productId:
+productStock: -6 //always negative
+}
+
+Http response:
+{
+productId:
+status: "updated"
+}
+
+#7. getProductDetails -- invoked when Buyer is listing Cart Items, and during Checkout
+Http Request:
+{
+productId:
+}
+
+Http Response:
+{
+--all product details--
+}
+
+#8. getCategory
+Http Request:
+{
+categoryId:
+}
+
+Http Response:
+{
+categoryId:
+--Category details--
+}
+
+#9. getSubCategory
+Http Request:
+{
+subCategoryId:
+}
+
+Http Response:
+{
+subCategoryId:
+--SUb Category details--
+}
+
+
